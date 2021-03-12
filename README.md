@@ -27,7 +27,7 @@ STEP 3: TBD
 
 ## Weekly Scrums
  - Meeting 1: March 5th 2021 (POST)
- - Meeting 2: March 12th 2021
+ - Meeting 2: March 11th 2021
 
 ## Associated Diagrams
 ### UML Class
