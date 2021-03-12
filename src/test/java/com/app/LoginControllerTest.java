@@ -27,13 +27,4 @@ public class LoginControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
     }
-    @Test
-    public void testLoginSuccessful() throws Exception {
-        mockMvc.perform(get("/login")
-                .requestAttr("loginPassword", "admin")
-                .requestAttr("loginEmail", "john_doe@gmail.com"))
-                .andExpect(view().name("loginSuccess"));
-
-    }
-
 }

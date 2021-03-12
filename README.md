@@ -1,7 +1,8 @@
 # Amazin Online Bookstore -- SYSC 4806 -- Winter 2021 Project
 
-By: 	Omar Azam (), 	
-	Mackenzie Hoyle (),	
+By: 	
+	Omar Azam 		(101048498), 	
+	Mackenzie Hoyle (101078698),	
 	David Neale 	(101059156),	
 	Sam Baumann 	(101033635)
 
@@ -19,6 +20,12 @@ STEP 2: Upon success, return to home page and Log In using created credentials.
  - Press continue to navigate to bookstore
 
 STEP 3: TBD
+
+#Travis CI
+https://travis-ci.org/github/omarazam98/BookStore_4806-SwingBoot_Firebase
+
+#Heroku Deployment
+https://p-4806.herokuapp.com
 
 ## Milestones
  - #### Milestone 1: Early Prototype due March 12th, 2021
