@@ -31,5 +31,6 @@ STEP 3: TBD
 
 ## Associated Diagrams
 ### UML Class
-
+![ClassDiagram](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/David-Diagrams/ClassDiagram.png?raw=true)
 ### Database Schema
+![DatabaseSchema](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/[branch]/DatabaseSchema.png?raw=true)
