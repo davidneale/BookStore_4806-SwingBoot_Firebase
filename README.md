@@ -35,6 +35,7 @@ https://p-4806.herokuapp.com
 ## Weekly Scrums
  - Meeting 1: March 5th 2021 (POST)
  - Meeting 2: March 11th 2021
+ - Meeting 3: March 21st 2021
 
 ## Associated Diagrams
 ### UML Class
