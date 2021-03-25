@@ -31,7 +31,12 @@ public class LoginController {
 
         if(loggedIn.size() == 1){
             model.addAttribute("user", loggedIn.get(0));
-            ModelAndView mav = new ModelAndView("loginSuccess");
+            ModelAndView mav;
+            if(loggedIn.get(0).isOwner()){
+                mav = new ModelAndView("adminLoginSuccess");
+            } else{
+                mav = new ModelAndView("loginSuccess");
+            }
             return mav;
         } else {
             ModelAndView mav = new ModelAndView("loginFailure");
@@ -40,7 +45,7 @@ public class LoginController {
     }
 
     @RequestMapping("/signup")
-    public Object signUp(String signUpPassword, String signUpEmail, String name) throws ExecutionException, InterruptedException {
+    public Object signUp(String signUpPassword, String signUpEmail, String name, boolean owner) throws ExecutionException, InterruptedException {
         List<User> userList = getUsers();
 
         List<User> loggedIn = userList.stream()
@@ -54,6 +59,7 @@ public class LoginController {
             newUser.setName(name);
             newUser.setPurchasedBooks(new ArrayList<>());
             newUser.setShoppingCart(new ArrayList<>());
+            newUser.setOwner(owner);
             CollectionReference userCR = db.getFirebase().collection("Users");
             userCR.add(newUser);
             return new ModelAndView("signupSuccess");
