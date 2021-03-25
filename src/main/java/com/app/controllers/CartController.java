@@ -21,9 +21,10 @@ public class CartController {
     @Autowired
     FirebaseInitializer db;
 
-    @RequestMapping("/shoppingCart")
-    public Object shoppingCart(ArrayList<String> user, Model model) throws ExecutionException, InterruptedException {
-        List<Book> bookList = getAllBooks(user);
+    @RequestMapping("/shopping")
+    public Object shoppingCart(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
+        List<Book> bookList = getAllBooks(user.getShoppingCart());
+        model.addAttribute("cart", user.getShoppingCart());
         model.addAttribute("bookList", (List<Book>) bookList);
         return new ModelAndView("shoppingCart");
     }
