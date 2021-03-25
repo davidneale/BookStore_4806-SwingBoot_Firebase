@@ -12,6 +12,12 @@ public class User extends Model {
     private ArrayList<String> shoppingCart;
     private ArrayList<String> purchasedBooks;
 
+    public boolean isOwner() { return isOwner; }
+
+    public void setOwner(boolean owner) { isOwner = owner; }
+
+    private boolean isOwner;
+
     public String getName() { return name; }
 
     public String getEmail() { return email; }
