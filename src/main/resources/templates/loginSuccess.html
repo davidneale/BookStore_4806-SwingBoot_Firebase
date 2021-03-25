@@ -24,5 +24,9 @@
 <form action="/bookstore" method="post">
     <input type="submit" value="Go to Book Store Library"/>
 </form>
+<form action="/shoppingCart" method="post">
+    <input name="user" id="user" th:value="${user.getShoppingCart()}" type="hidden"/>
+    <input type="submit" value="Go to Shopping Cart"/>
+</form>
 </body>
 </html>
