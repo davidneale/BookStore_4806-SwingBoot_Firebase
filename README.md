@@ -57,6 +57,6 @@ Elaborate:
 Elaborate:
 ## Associated Diagrams
 ### UML Class
-![ClassDiagram](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/David-Diagrams/diagrams/ClassDiagram.png?raw=true)
+![ClassDiagram](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/blob/main/diagrams/UML%20Diagram%20MS2.png?raw=true)
 ### Database Schema
-![DatabaseSchema](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/David-Diagrams/diagrams/DatabaseSchema.PNG?raw=true)
+![DatabaseSchema](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/blob/main/diagrams/Database%20Schema%20MS2.png?raw=true)
