@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
@@ -24,6 +25,19 @@ public class CartController {
     @RequestMapping("/shopping")
     public Object shoppingCart(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
         List<Book> bookList = getAllBooks(user.getShoppingCart());
+        model.addAttribute("cart", user.getShoppingCart());
+        model.addAttribute("bookList", (List<Book>) bookList);
+        return new ModelAndView("shoppingCart");
+    }
+
+    @RequestMapping("/newShopping")
+    public Object newShoppingCart(@ModelAttribute("user") User user, @RequestParam(name = "book") String book, Model model) throws ExecutionException, InterruptedException {
+        ArrayList<String> books = user.getShoppingCart();
+        books.add(book);
+        user.setShoppingCart(books);
+        db.getFirebase().collection("Users").document(user.id).set(user);
+        List<Book> bookList = getAllBooks(books);
+        model.addAttribute("user", user);
         model.addAttribute("cart", user.getShoppingCart());
         model.addAttribute("bookList", (List<Book>) bookList);
         return new ModelAndView("shoppingCart");

@@ -22,9 +22,16 @@
 <h2>Successfully Logged In!</h2>
 <H2>Welcome  <span th:text="${user.name}"></span></H2>
 <form action="/bookstore" method="post">
+    <input th:field="${user.email}" type="hidden">
+    <input th:field="${user.password}" type="hidden">
+    <input th:field="${user.name}" type="hidden">
+    <input th:field="${user.purchasedBooks}" type="hidden">
+    <input th:field="${user.id}" type="hidden">
+    <input th:field="${user.shoppingCart}" type="hidden">
     <input type="submit" value="Go to Book Store Library"/>
 </form>
 <form action="/shopping" method="post">
+    <input th:field="${user.shoppingCart}" type="hidden">
     <input type="submit" value="Go to Shopping Cart"/>
 </form>
 </body>
