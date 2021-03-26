@@ -37,6 +37,24 @@ https://p-4806.herokuapp.com
  - Meeting 2: March 11th 2021
  - Meeting 3: March 21st 2021
 
+## Code Review Checklist - To be done by at least 1 non-commiter reviewer each commit
+- [ ] Does this code change accomplish what it is supposed to do?
+Elaborate: 
+
+- [ ] Is the solution readable and easily understood?
+Elaborate: 
+
+- [ ] Is the code free of logical error/bugs?
+Elaborate: 
+
+- [ ] Are errors and exceptions handled gracefully?
+Elaborate: 
+
+- [ ] If testing is possible, was it done?
+Elaborate: 
+
+- [ ] Does the code require review from another developer before being committed?
+Elaborate:
 ## Associated Diagrams
 ### UML Class
 ![ClassDiagram](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/David-Diagrams/diagrams/ClassDiagram.png?raw=true)
