@@ -2,6 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
+    <button onclick="window.history.back()">Go Back</button>
     <title>Shopping Cart</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <style type="text/css">
@@ -37,7 +38,6 @@
     </style>
 </head>
 <body>
-<H2>List  <span th:text="${cart}"></span></H2>
 <table style="float: left">
     <tr>
         <th th:text="'Cover'"/>
