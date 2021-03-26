@@ -1,5 +1,4 @@
 package com.app.controllers;
-import com.app.models.Book;
 import com.app.models.User;
 import com.app.services.FirebaseInitializer;
 import com.google.api.core.ApiFuture;
