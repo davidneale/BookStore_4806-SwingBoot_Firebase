@@ -11,6 +11,30 @@ public class Book extends Model {
     private String isbn;
     private int cost;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
     public String getName() {
         return name;
     }
@@ -26,5 +50,7 @@ public class Book extends Model {
     public int getCost() { return cost;}
 
     public String getIsbn() { return isbn;}
+
+
 
 }
