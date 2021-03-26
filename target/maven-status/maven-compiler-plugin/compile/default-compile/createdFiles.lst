@@ -1,0 +1,8 @@
+com\app\models\Book.class
+com\app\models\User.class
+com\app\controllers\BookController.class
+com\app\models\Model.class
+com\app\controllers\DashboardController.class
+com\app\DemoApplication.class
+com\app\controllers\LoginController.class
+com\app\services\FirebaseInitializer.class
