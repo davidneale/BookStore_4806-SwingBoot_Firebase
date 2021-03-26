@@ -29,7 +29,7 @@ https://p-4806.herokuapp.com
 
 ## Plans for next sprint
 
-- Iron out remaining bugs in purchased books / shopping cart controller
+- Iron out remaining bugs in purchased books / shopping cart controller / owner dashboard
 
 - Implement reccomendations system based on user's purchase history
 
