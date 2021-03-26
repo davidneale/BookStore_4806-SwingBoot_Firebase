@@ -29,7 +29,7 @@ https://p-4806.herokuapp.com
 
 ## Milestones
  - #### [Milestone 1: Early Prototype due March 12th, 2021](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/issues/2)
- - #### Milestone 2: Early Alpha Release due March 26th, 2021
+ - #### [Milestone 2: Early Alpha Release due March 26th, 2021](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/issues/20)
  - #### Milestone 3: Final Demo due April 9th, 2021
 
 ## Weekly Scrums
@@ -37,8 +37,26 @@ https://p-4806.herokuapp.com
  - Meeting 2: March 11th 2021
  - Meeting 3: March 21st 2021
 
+## Code Review Checklist - To be done by at least 1 non-commiter reviewer each commit
+- [ ] Does this code change accomplish what it is supposed to do?
+Elaborate: 
+
+- [ ] Is the solution readable and easily understood?
+Elaborate: 
+
+- [ ] Is the code free of logical error/bugs?
+Elaborate: 
+
+- [ ] Are errors and exceptions handled gracefully?
+Elaborate: 
+
+- [ ] If testing is possible, was it done?
+Elaborate: 
+
+- [ ] Does the code require review from another developer before being committed?
+Elaborate:
 ## Associated Diagrams
 ### UML Class
-![ClassDiagram](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/David-Diagrams/diagrams/ClassDiagram.png?raw=true)
+![ClassDiagram](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/blob/main/diagrams/UML%20Diagram%20MS2.png?raw=true)
 ### Database Schema
-![DatabaseSchema](https://github.com/davidneale/BookStore_4806-SwingBoot_Firebase/blob/David-Diagrams/diagrams/DatabaseSchema.PNG?raw=true)
+![DatabaseSchema](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/blob/main/diagrams/Database%20Schema%20MS2.png?raw=true)
