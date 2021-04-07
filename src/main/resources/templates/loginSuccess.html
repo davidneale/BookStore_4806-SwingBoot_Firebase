@@ -31,6 +31,7 @@
     <input type="submit" value="Go to Book Store Library"/>
 </form>
 <form action="/shopping" method="post">
+    <input th:field="${user.id}" type="hidden">
     <input th:field="${user.shoppingCart}" type="hidden">
     <input type="submit" value="Go to Shopping Cart"/>
 </form>
