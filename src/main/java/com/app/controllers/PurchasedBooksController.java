@@ -26,18 +26,24 @@ public class PurchasedBooksController {
     @Autowired
     FirebaseInitializer db;
 
+    @RequestMapping("/purchased")
+    public Object PurchasedBooks(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
+        User updatedUser = (User) db.getFirebase().collection("Users").document(user.id).get().get().toObject(User.class);
+        List<Book> bookList = getAllBooks(updatedUser.getPurchasedBooks());
+        model.addAttribute("purchasedBooks", bookList);
+        return new ModelAndView("purchasedBooks");
+    }
+
     @RequestMapping("/purchasedBooks")
     public Object newPurchaseBooks(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
-        ArrayList<String> books = user.getShoppingCart();
-        ArrayList<String> pBooks = user.getPurchasedBooks();
-        for(String s : books){
-            pBooks.add(s);
-        }
-        user.setPurchasedBooks(pBooks);
-        books.clear();
-        user.setShoppingCart(books);
+        User updatedUser = (User) db.getFirebase().collection("Users").document(user.id).get().get().toObject(User.class);
+        ArrayList<String> pBooks = updatedUser.getShoppingCart();
+        pBooks.addAll(updatedUser.getPurchasedBooks());
+        updatedUser.setPurchasedBooks(pBooks);
+        updatedUser.setShoppingCart(new ArrayList<>());
         List<Book> bookList = getAllBooks(pBooks);
-        model.addAttribute("user", user);
+        db.getFirebase().collection("Users").document(user.id).set(updatedUser);
+        model.addAttribute("user", updatedUser);
         model.addAttribute("purchasedBooks", bookList);
         return new ModelAndView("purchasedBooks");
     }
