@@ -33,7 +33,16 @@
 <form action="/shopping" method="post">
     <input th:field="${user.id}" type="hidden">
     <input th:field="${user.shoppingCart}" type="hidden">
+    <input th:field="${user.id}" type="hidden">
+    <input th:field="${user.shoppingCart}" type="hidden">
+    <input th:field="${user.shoppingCart}" type="hidden">
     <input type="submit" value="Go to Shopping Cart"/>
+</form>
+<form action="/purchased" method="post">
+    <input th:field="${user.shoppingCart}" type="hidden">
+    <input th:field="${user.id}" type="hidden">
+    <input th:field="${user.shoppingCart}" type="hidden">
+    <input type="submit" value="Go to Purchased Books"/>
 </form>
 </body>
 </html>
