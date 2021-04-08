@@ -35,10 +35,25 @@
         table, tbody, tr, th, td{
             background: rgba(255,255,255,0.33);
         }
+        fieldset{
+            background: rgba(255,255,255,0.33);
+        }
+
     </style>
 </head>
 <body>
-<table style="float: left">
+<fieldset data-role="controlgroup" data-type="horizontal">
+    <input type="radio" name="filter" id="Name" value="1"/>
+    <label for="Name"><b>Name</b></label>
+    <input type="radio" name="filter" id="Author" value="2"/>
+    <label for="Author"><b>Author</b></label>
+    <input type="radio" name="filter" id="Genre" value="3"/>
+    <label for="Genre"><b>Genre</b></label>
+    <input type="radio" name="filter" id="ISBN" value="4"/>
+    <label for="ISBN"><b>ISBN</b></label>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+</fieldset>
+<table style="float: left" id="myTable">
     <tr>
         <th th:text="'Cover'"/>
         <th th:text="'Book Name'"/>
@@ -67,5 +82,35 @@
         <input name="id" th:value="${book.id}" type="hidden"/>
     </tr>
 </table>
+    <script>
+    var radios = document.getElementsByTagName('input');
+    function myFunction() {
+        var value;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].type === 'radio' && radios[i].checked) {
+            // get value, set checked flag or do whatever you need to
+            value = parseInt(radios[i].value);
+            console.log(value);
+            }
+        }
+
+
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[value];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
 </body>
 </html>
