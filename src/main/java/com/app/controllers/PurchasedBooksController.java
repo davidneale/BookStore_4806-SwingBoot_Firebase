@@ -38,6 +38,13 @@ public class PurchasedBooksController {
     public Object newPurchaseBooks(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
         User updatedUser = (User) db.getFirebase().collection("Users").document(user.id).get().get().toObject(User.class);
         ArrayList<String> pBooks = updatedUser.getShoppingCart();
+
+        for(String b : pBooks){
+            Book updatedBook = (Book) db.getFirebase().collection("Books").document(b).get().get().toObject(Book.class);
+            updatedBook.setInventory(updatedBook.getInventory() - 1);
+            db.getFirebase().collection("Books").document(b).set(updatedBook);
+        }
+
         pBooks.addAll(updatedUser.getPurchasedBooks());
         updatedUser.setPurchasedBooks(pBooks);
         updatedUser.setShoppingCart(new ArrayList<>());

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Book Store</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            background-image: url("https://youimg1.tripcdn.com/target/1A071b000001cev3dAA2C.jpg?proc=source%2Ftrip");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            color: midnightblue;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Book Store</h1>
+<h2>Successfully Logged In!</h2>
+<H2>Welcome  <span th:text="${user.name}"></span></H2>
+
+<form action="/addBookSuccess" method="post">
+    <div style="float: right">
+        <h2>Book Information</h2>
+        <form action="/addBookSuccess" method="post">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text">
+            <label for="author">Author</label>
+            <input id="author" name="author" type="text">
+            <label for="img">Image Url</label>
+            <input id="img" name="img" type="text">
+            <label for="genre">Genre</label>
+            <input id="genre" name="genre" type="text">
+            <label for="isbn">ISBN</label>
+            <input id="isbn" name="isbn" type="text">
+            <label for="cost">Cost</label>
+            <input id="cost" name="cost" type="number">
+            <input type="submit" value="Add Book"/>
+        </form>
+    </div>
+
+    <input type="submit" value="Add a new Book to the Bookstore"/>
+</form>
+
+<form action="/bookstore" method="post">
+    <input type="submit" value="Go to Book Store Library"/>
+</form>
+</body>
+</html>
