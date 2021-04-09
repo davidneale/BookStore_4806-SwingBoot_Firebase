@@ -39,7 +39,8 @@
 </head>
 <body>
 <h1>Book Store</h1>
-<h2>Successfully Added Book!</h2>
+<h2>Successfully Edited Book!</h2>
+<button onclick="window.history.go(-3)">Go Back to dashboard</button>
 <table style="float: left">
     <tr>
         <th th:text="'Cover'"/>
@@ -74,6 +75,6 @@
         <input name="id" th:value="${book.id}" type="hidden"/>
     </tr>
 </table>
-<button onclick="window.history.back()">Go Back to dashboard</button>
+
 </body>
 </html>

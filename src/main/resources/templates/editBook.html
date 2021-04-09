@@ -38,7 +38,7 @@
         <input th:value="${book.cost}" id="cost" name="cost" type="number">
         <label for="inventory">Inventory</label>
         <input th:value="${book.inventory}" id="inventory" name="inventory" type="number">
-        <input th:value="${book.id}">
+        <input id="book" name="book" th:value="${book.id}" type="hidden">
 
         <input type="submit" value="Save Edits"/>
 

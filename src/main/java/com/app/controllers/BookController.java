@@ -33,6 +33,21 @@ public class BookController {
         return empList;
     }
 
+    private Book getBook(String isbn) throws InterruptedException, ExecutionException {
+        Book b = new Book();
+        CollectionReference books = db.getFirebase().collection("Books");
+        ApiFuture<QuerySnapshot> querySnapshot= books.get();
+        for(DocumentSnapshot doc:querySnapshot.get().getDocuments()) {
+            Book emp = Objects.requireNonNull(doc.toObject(Book.class)).withId(doc.getId());
+            if(emp.getIsbn().equals(isbn)){
+                b = emp;
+                break;
+            }
+        }
+        return b;
+
+    }
+
     @RequestMapping("/bookstore")
     public Object listAllBooks(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
         model.addAttribute("user", user);
@@ -53,7 +68,7 @@ public class BookController {
     }
 
     @RequestMapping("/bookEditor")
-    public Object editBook(@ModelAttribute("user") User user, @RequestParam(name = "bookId") String book, Model model) throws ExecutionException, InterruptedException {
+    public Object editBook(@ModelAttribute("user") User user, @RequestParam(name = "book") String book, Model model) throws ExecutionException, InterruptedException {
         Book oldBook = db.getFirebase().collection("Books").document(book).get().get().toObject(Book.class);
         model.addAttribute("book", oldBook);
         model.addAttribute("bookId", book);
@@ -61,10 +76,10 @@ public class BookController {
     }
 
     @RequestMapping ("/editBookSuccess")
-    public Object editBookSuccess(@ModelAttribute("book") Book book, @ModelAttribute("bookId") String bookId, Model model){
+    public Object editBookSuccess(@ModelAttribute("book") Book book, @ModelAttribute("bookId") String bookId, Model model) throws ExecutionException, InterruptedException {
+        Book b = getBook(book.getIsbn());
 
-
-        db.getFirebase().collection("Books").document(bookId).set(book);
+        db.getFirebase().collection("Books").document(b.id).set(book);
         model.addAttribute("book", book);
         return new ModelAndView("/editBookSuccess");
     }
