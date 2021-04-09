@@ -27,12 +27,18 @@ public class RecommendationsController {
     public Object shoppingCart(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
         User updatedUser = (User) db.getFirebase().collection("Users").document(user.id).get().get().toObject(User.class);
         User recommendUser = getRecommendUser(updatedUser);
-        List<Book> bookList = getAllBooks(updatedUser.getPurchasedBooks(), recommendUser.getPurchasedBooks());
-        model.addAttribute("bookList", (List<Book>) bookList);
+        if(recommendUser.getPurchasedBooks() == null || updatedUser.getPurchasedBooks()== null){
+            model.addAttribute("bookList", (List<Book>) new ArrayList<Book>());
+        }
+        else {
+            List<Book> bookList = getAllBooks(updatedUser.getPurchasedBooks(), recommendUser.getPurchasedBooks());
+            model.addAttribute("bookList", (List<Book>) bookList);
+        }
         return new ModelAndView("recommendedCart");
     }
 
     public List<Book> getAllBooks(ArrayList<String> bookIds, ArrayList<String> recommendBookIds) throws InterruptedException, ExecutionException {
+
         List<Book> list = new ArrayList<Book>();
         CollectionReference books = db.getFirebase().collection("Books");
         ApiFuture<QuerySnapshot> querySnapshot= books.get();

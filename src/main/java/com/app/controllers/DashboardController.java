@@ -38,7 +38,7 @@ public class DashboardController {
     }
 
     @RequestMapping("/addBookSuccess")
-    public Object addBook(String name, String author, String img, String genre, String isbn, Integer cost, Model model) throws ExecutionException, InterruptedException {
+    public Object addBook(String name, String author, String img, String genre, String isbn, Integer cost, Integer inventory, Model model) throws ExecutionException, InterruptedException {
         List<Book> bookList = getAllBooks();
 
         List<Book> filteredBooks = bookList.stream()
@@ -53,6 +53,7 @@ public class DashboardController {
             newBook.setGenre(genre);
             newBook.setIsbn(isbn);
             newBook.setCost(cost);
+            newBook.setInventory(inventory);
             CollectionReference bookCR = db.getFirebase().collection("Books");
             bookCR.add(newBook);
             model.addAttribute("book", newBook);
