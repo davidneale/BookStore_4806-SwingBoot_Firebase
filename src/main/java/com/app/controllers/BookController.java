@@ -24,24 +24,21 @@ public class BookController {
     FirebaseInitializer db;
 
 
-    public List<Book> getAllBooks(User user) throws InterruptedException, ExecutionException {
+    public List<Book> getAllBooks() throws InterruptedException, ExecutionException {
         List<Book> empList = new ArrayList<Book>();
         CollectionReference books = db.getFirebase().collection("Books");
         ApiFuture<QuerySnapshot> querySnapshot= books.get();
         for(DocumentSnapshot doc:querySnapshot.get().getDocuments()) {
             Book emp = Objects.requireNonNull(doc.toObject(Book.class)).withId(doc.getId());
-            if(user.getShoppingCart() == null || !user.getShoppingCart().contains(emp.id) && user.getPurchasedBooks() == null || !(user.getPurchasedBooks().contains(emp.id))){
-                empList.add(emp);
-            }
+            empList.add(emp);
         }
         return empList;
     }
 
     @RequestMapping("/bookstore")
     public Object listAllBooks(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
-        User updatedUser = (User) db.getFirebase().collection("Users").document(user.id).get().get().toObject(User.class);
         model.addAttribute("user", user);
-        List<Book> bookList = getAllBooks(updatedUser);
+        List<Book> bookList = getAllBooks();
         model.addAttribute("bookList", (List<Book>) bookList);
         ModelAndView mav = new ModelAndView("bookstore");
         return mav;
