@@ -39,7 +39,6 @@ public class CartController {
         updatedUser.setShoppingCart(books);
         db.getFirebase().collection("Users").document(user.id).set(updatedUser);
         List<Book> bookList = getAllBooks(updatedUser.getShoppingCart());
-        model.addAttribute("user", updatedUser);
         model.addAttribute("bookList", (List<Book>) bookList);
         return new ModelAndView("shoppingCart");
     }
