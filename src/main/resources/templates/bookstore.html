@@ -66,7 +66,7 @@
                 <button type="submit" value="Submit">Add to Cart</button>
             </td>
             <td>
-                <form action="/newShopping" method="get">
+                <form action="/newShopping" method="post">
                     <input id="book" name="book" th:value="${book.id}" type="hidden">
                     <input th:field="${user.email}" type="hidden">
                     <input th:field="${user.password}" type="hidden">

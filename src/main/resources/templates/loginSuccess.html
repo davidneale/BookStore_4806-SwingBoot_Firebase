@@ -31,6 +31,10 @@
     <input type="submit" value="Go to Book Store Library"/>
 </form>
 <form action="/shopping" method="post">
+    <input th:field="${user.email}" type="hidden">
+    <input th:field="${user.password}" type="hidden">
+    <input th:field="${user.name}" type="hidden">
+    <input th:field="${user.purchasedBooks}" type="hidden">
     <input th:field="${user.id}" type="hidden">
     <input th:field="${user.shoppingCart}" type="hidden">
     <input type="submit" value="Go to Shopping Cart"/>
@@ -38,8 +42,16 @@
 <form action="/purchased" method="post">
     <input th:field="${user.shoppingCart}" type="hidden">
     <input th:field="${user.id}" type="hidden">
-    <input th:field="${user.shoppingCart}" type="hidden">
     <input type="submit" value="Go to Purchased Books"/>
+</form>
+<form action="/recommendations" method="post">
+    <input th:field="${user.purchasedBooks}" type="hidden">
+    <input th:field="${user.id}" type="hidden">
+    <input th:field="${user.shoppingCart}" type="hidden">
+    <input type="submit" value="Go to recommendations"/>
+</form>
+<form action="/" method="post">
+    <input type="submit" value="Logout"/>
 </form>
 </body>
 </html>

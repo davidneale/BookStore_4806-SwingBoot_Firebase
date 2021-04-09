@@ -43,7 +43,6 @@ public class PurchasedBooksController {
         updatedUser.setShoppingCart(new ArrayList<>());
         List<Book> bookList = getAllBooks(pBooks);
         db.getFirebase().collection("Users").document(user.id).set(updatedUser);
-        model.addAttribute("user", updatedUser);
         model.addAttribute("purchasedBooks", bookList);
         return new ModelAndView("purchasedBooks");
     }
