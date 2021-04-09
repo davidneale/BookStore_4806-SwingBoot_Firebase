@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Book Store</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            background-image: url("https://youimg1.tripcdn.com/target/1A071b000001cev3dAA2C.jpg?proc=source%2Ftrip");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            color: midnightblue;
+        }
+
+    </style>
+</head>
+<body>
+<h1>
+    Book Store
+</h1>
+<div>
+    <div style="float: left">
+        <h2>Login </h2>
+        <form action="/login" method="post">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="loginEmail" type="email">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="loginPassword" type="password">
+            <input type="submit" value="Login"/>
+        </form>
+    </div>
+    <div style="float: right">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="post">
+            <label for="signUpEmail">Email</label>
+            <input id="signUpEmail" name="signUpEmail" type="email">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text">
+            <label for="signUpPassword">Password</label>
+            <input id="signUpPassword" name="signUpPassword" type="password">
+            <label for="owner">Owner: </label>
+            <input id="owner" name="owner" type="radio">
+            <input type="submit" value="Sign Up"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

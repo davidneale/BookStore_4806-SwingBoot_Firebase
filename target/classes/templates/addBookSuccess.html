@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Book Store</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            background-image: url("https://youimg1.tripcdn.com/target/1A071b000001cev3dAA2C.jpg?proc=source%2Ftrip");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            color: midnightblue;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 150px;
+        }
+
+        table {
+            table-layout: auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table td {
+            border: 2px solid #ccc;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table, tbody, tr, th, td{
+            background: rgba(255,255,255,0.33);
+        }
+
+    </style>
+</head>
+<body>
+<h1>Book Store</h1>
+<h2>Successfully Added Book!</h2>
+<table style="float: left">
+    <tr>
+        <th th:text="'Cover'"/>
+        <th th:text="'Book Name'"/>
+        <th th:text="'Author'"/>
+        <th th:text="'Genre'"/>
+        <th th:text="'isbn'"/>
+        <th th:text="'Cost'"/>
+    </tr>
+    <tr>
+        <td>
+            <img th:src="${book.img}">
+        </td>
+        <td th:text="${book.name}">
+        </td>
+        <td th:text="${book.author}">
+
+        </td>
+        <td th:text="${book.genre}">
+
+        </td>
+        <td th:text="${book.isbn}">
+
+        </td>
+        <td th:text="${book.cost}">
+            <button type="submit" value="Submit">Add to Cart</button>
+        </td>
+        <input name="id" th:value="${book.id}" type="hidden"/>
+    </tr>
+</table>
+<button onclick="window.history.back()">Go Back to dashboard</button>
+</body>
+</html>

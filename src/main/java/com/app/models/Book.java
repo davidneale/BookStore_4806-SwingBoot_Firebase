@@ -10,6 +10,7 @@ public class Book extends Model {
     private String genre;
     private String isbn;
     private int cost;
+    private int inventory;
 
     public void setName(String name) {
         this.name = name;
@@ -50,6 +51,10 @@ public class Book extends Model {
     public int getCost() { return cost;}
 
     public String getIsbn() { return isbn;}
+
+    public int getInventory() { return inventory; }
+
+    public void setInventory(int inventory) { this.inventory = inventory; }
 
 
 
