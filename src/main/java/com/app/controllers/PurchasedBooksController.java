@@ -51,7 +51,7 @@ public class PurchasedBooksController {
         List<Book> bookList = getAllBooks(pBooks);
         db.getFirebase().collection("Users").document(user.id).set(updatedUser);
         model.addAttribute("purchasedBooks", bookList);
-        return new ModelAndView("purchasedBooks");
+        return new ModelAndView("newPurchasedBooks");
     }
 
     public List<Book> getAllBooks(ArrayList<String> bookIds) throws InterruptedException, ExecutionException {
