@@ -8,9 +8,7 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -42,6 +40,33 @@ public class BookController {
         model.addAttribute("bookList", (List<Book>) bookList);
         ModelAndView mav = new ModelAndView("bookstore");
         return mav;
+    }
+
+    @RequestMapping("/ownerBookstore")
+    public Object listAllBooksOwner(@ModelAttribute("user") User user, Model model) throws ExecutionException, InterruptedException {
+        model.addAttribute("user", user);
+        List<Book> bookList = getAllBooks();
+        model.addAttribute("bookList", (List<Book>) bookList);
+        ModelAndView mav = new ModelAndView("ownerBookstore");
+        return mav;
+
+    }
+
+    @RequestMapping("/bookEditor")
+    public Object editBook(@ModelAttribute("user") User user, @RequestParam(name = "bookId") String book, Model model) throws ExecutionException, InterruptedException {
+        Book oldBook = db.getFirebase().collection("Books").document(book).get().get().toObject(Book.class);
+        model.addAttribute("book", oldBook);
+        model.addAttribute("bookId", book);
+        return new ModelAndView("editBook");
+    }
+
+    @RequestMapping ("/editBookSuccess")
+    public Object editBookSuccess(@ModelAttribute("book") Book book, @ModelAttribute("bookId") String bookId, Model model){
+
+
+        db.getFirebase().collection("Books").document(bookId).set(book);
+        model.addAttribute("book", book);
+        return new ModelAndView("/editBookSuccess");
     }
 }
 

@@ -85,17 +85,13 @@
             </td>
 
             <td>
-                <form th:if="${book.inventory > 0}" action="/newShopping" method="post">
-                    <input id="book" name="book" th:value="${book.id}" type="hidden">
-                    <input th:field="${user.email}" type="hidden">
-                    <input th:field="${user.password}" type="hidden">
-                    <input th:field="${user.name}" type="hidden">
-                    <input th:field="${user.purchasedBooks}" type="hidden">
-                    <input th:field="${user.id}" type="hidden">
-                    <input th:field="${user.shoppingCart}" type="hidden">
-                    <input type="submit" value="Add to Shopping-cart"/>
+                <form action="/bookEditor" method="post">
+                    <input id="bookId" name="bookId" th:value="${book.id}" type="hidden">
+
+                    <input type="submit" value="Edit Book Information"/>
                 </form>
             </td>
+
         </tr>
     </table>
     <script>

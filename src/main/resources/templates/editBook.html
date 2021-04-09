@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Book Store</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            background-image: url("https://youimg1.tripcdn.com/target/1A071b000001cev3dAA2C.jpg?proc=source%2Ftrip");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            color: midnightblue;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Book Store</h1>
+
+
+<div style="float: right">
+    <h2>Book Information</h2>
+    <form th:object="${book}" action="/editBookSuccess" method="get">
+        <label for="name">Name</label>
+        <input th:value="${book.name}" id="name" name="name" type="text">
+        <label for="author">Author</label>
+        <input th:value="${book.author}" id="author" name="author" type="text">
+        <label for="img">Image Url</label>
+        <input th:value="${book.img}" id="img" name="img" type="text">
+        <label for="genre">Genre</label>
+        <input th:value="${book.genre}" id="genre" name="genre" type="text">
+        <label for="isbn">ISBN</label>
+        <input th:value="${book.isbn}" id="isbn" name="isbn" type="text">
+        <label for="cost">Cost</label>
+        <input th:value="${book.cost}" id="cost" name="cost" type="number">
+        <label for="inventory">Inventory</label>
+        <input th:value="${book.inventory}" id="inventory" name="inventory" type="number">
+        <input th:value="${book.id}">
+
+        <input type="submit" value="Save Edits"/>
+
+    </form>
+</div>
+
+
+</body>
+</html>
