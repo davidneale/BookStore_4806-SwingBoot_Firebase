@@ -3,7 +3,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <button onclick="window.history.back()">Go Back</button>
-    <title>Shopping Cart</title>
+    <title>Recommended Cart</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <style type="text/css">
         body {
@@ -66,16 +66,19 @@
             <button type="submit" value="Submit">Add to Cart</button>
         </td>
         <input name="id" th:value="${book.id}" type="hidden"/>
+        <td>
+            <form action="/newShopping" method="post">
+                <input id="book" name="book" th:value="${book.id}" type="hidden">
+                <input th:field="${user.email}" type="hidden">
+                <input th:field="${user.password}" type="hidden">
+                <input th:field="${user.name}" type="hidden">
+                <input th:field="${user.purchasedBooks}" type="hidden">
+                <input th:field="${user.id}" type="hidden">
+                <input th:field="${user.shoppingCart}" type="hidden">
+                <input type="submit" value="Add to Shopping-cart"/>
+            </form>
+        </td>
     </tr>
 </table>
-<form action="/purchasedBooks" method="post">
-    <input th:field="${user.email}" type="hidden">
-    <input th:field="${user.password}" type="hidden">
-    <input th:field="${user.name}" type="hidden">
-    <input th:field="${user.purchasedBooks}" type="hidden">
-    <input th:field="${user.id}" type="hidden">
-    <input th:field="${user.shoppingCart}" type="hidden">
-    <input type="submit" value="Purchase Books"/>
-</form>
 </body>
 </html>

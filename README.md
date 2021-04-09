@@ -27,6 +27,14 @@ https://travis-ci.org/github/omarazam98/BookStore_4806-SwingBoot_Firebase
 #Heroku Deployment
 https://p-4806.herokuapp.com
 
+## Plans for next sprint
+
+- Iron out remaining bugs in purchased books / shopping cart controller / owner dashboard
+
+- Implement reccomendations system based on user's purchase history
+
+- Follow CI process more rigorously 
+
 ## Milestones
  - #### [Milestone 1: Early Prototype due March 12th, 2021](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/issues/2)
  - #### [Milestone 2: Early Alpha Release due March 26th, 2021](https://github.com/omarazam98/BookStore_4806-SwingBoot_Firebase/issues/20)

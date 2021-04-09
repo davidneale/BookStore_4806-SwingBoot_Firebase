@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <button onclick="window.history.back()">Go Back</button>
+    <title>Purchased Books</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            background-image: url("https://i.pinimg.com/originals/39/87/2d/39872d5ebb92f7c6973c22c10751d62c.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            color: midnightblue;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 150px;
+        }
+
+        table {
+            table-layout: auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table td {
+            border: 2px solid #ccc;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table, tbody, tr, th, td{
+            background: rgba(255,255,255,0.33);
+        }
+        fieldset{
+            background: rgba(255,255,255,0.33);
+        }
+
+    </style>
+</head>
+<body>
+<fieldset data-role="controlgroup" data-type="horizontal">
+    <input type="radio" name="filter" id="Name" value="1"/>
+    <label for="Name"><b>Name</b></label>
+    <input type="radio" name="filter" id="Author" value="2"/>
+    <label for="Author"><b>Author</b></label>
+    <input type="radio" name="filter" id="Genre" value="3"/>
+    <label for="Genre"><b>Genre</b></label>
+    <input type="radio" name="filter" id="ISBN" value="4"/>
+    <label for="ISBN"><b>ISBN</b></label>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+</fieldset>
+<table style="float: left" id="myTable">
+    <tr>
+        <th th:text="'Cover'"/>
+        <th th:text="'Book Name'"/>
+        <th th:text="'Author'"/>
+        <th th:text="'Genre'"/>
+        <th th:text="'isbn'"/>
+        <th th:text="'Cost'"/>
+    </tr>
+    <tr th:each="book: ${purchasedBooks}">
+        <td>
+            <img th:src="${book.img}">
+        </td>
+        <td th:text="${book.name}">
+        </td>
+        <td th:text="${book.author}">
+
+        </td>
+        <td th:text="${book.genre}">
+
+        </td>
+        <td th:text="${book.isbn}">
+
+        </td>
+        <td th:text="${book.cost}">
+        </td>
+        <input name="id" th:value="${book.id}" type="hidden"/>
+    </tr>
+</table>
+    <script>
+    var radios = document.getElementsByTagName('input');
+    function myFunction() {
+        var value;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].type === 'radio' && radios[i].checked) {
+            // get value, set checked flag or do whatever you need to
+            value = parseInt(radios[i].value);
+            console.log(value);
+            }
+        }
+
+
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[value];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+</body>
+</html>
