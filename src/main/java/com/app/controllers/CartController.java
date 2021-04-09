@@ -28,6 +28,7 @@ public class CartController {
         User updatedUser = (User) db.getFirebase().collection("Users").document(user.id).get().get().toObject(User.class);
         List<Book> bookList = getAllBooks(updatedUser.getShoppingCart());
         model.addAttribute("bookList", (List<Book>) bookList);
+        model.addAttribute("totalCost", getTotalCost(bookList));
         return new ModelAndView("shoppingCart");
     }
 
@@ -40,7 +41,8 @@ public class CartController {
         db.getFirebase().collection("Users").document(user.id).set(updatedUser);
         List<Book> bookList = getAllBooks(updatedUser.getShoppingCart());
         model.addAttribute("bookList", (List<Book>) bookList);
-        return new ModelAndView("shoppingCart");
+        model.addAttribute("totalCost", getTotalCost(bookList));
+        return new ModelAndView("newShoppingCart");
     }
 
     public List<Book> getAllBooks(ArrayList<String> bookIds) throws InterruptedException, ExecutionException {
@@ -54,5 +56,13 @@ public class CartController {
             }
         }
         return list;
+    }
+
+    public int getTotalCost(List<Book> books){
+        int totalCost = 0;
+        for(Book b : books){
+            totalCost += b.getCost();
+        }
+        return totalCost;
     }
 }
